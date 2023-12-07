@@ -47,7 +47,7 @@ const { open, close } = constants;
 const accordion = document.querySelector(".accordion");
 
 // TASK 4- Create a function 'makePanel' that creates a panel exactly as you see it in the HTML.
-function makePanel(/* what data does the panel need? */) {
+function makePanel({ title, content }) {
   // TASK 5- Instantiate all the elements needed for a panel
   const panel = document.createElement("div");
   const panelBar = document.createElement("div");
@@ -85,10 +85,14 @@ function makePanel(/* what data does the panel need? */) {
   panelButtons.classList.add("panel-buttons");
   openButton.classList.add("panle-btn-open");
   closeButton.classList.add("panel-btn-close", "hide-btn");
-  panelContent.classList.add("panel-content")
- 
+  panelContent.classList.add("panel-content");
+
   // TASK 8- Set text content using arguments as raw material
   //  and also using the open and close arrows imported at the top of the file
+  panelTitle.textContent = title;
+  panelContent.textContent = content;
+  openButton.textContent = open;
+  closeButton.textContent = close;
 
   // TASK 9- When the 'open' or 'close' buttons are clicked, the content is toggled on/off:
   //  - the open button needs to go away (the 'hide-btn' class name controls this)
