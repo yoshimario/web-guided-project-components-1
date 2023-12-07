@@ -49,13 +49,13 @@ const accordion = document.querySelector(".accordion");
 // TASK 4- Create a function 'makePanel' that creates a panel exactly as you see it in the HTML.
 function makePanel(/* what data does the panel need? */) {
   // TASK 5- Instantiate all the elements needed for a panel
-  const panel = document.createElement('div');
-  const panelBar = document.createElement('div');
-  const panelContent = document.createElement('div');
-  const panelTitle = document.createElement('h3');
-  const panelButtons = document.createElement('div');
-  const openButton = document.createElement('button');
-  const closeButton = docyuemnt.createElement('button');
+  const panel = document.createElement("div");
+  const panelBar = document.createElement("div");
+  const panelContent = document.createElement("div");
+  const panelTitle = document.createElement("h3");
+  const panelButtons = document.createElement("div");
+  const openButton = document.createElement("button");
+  const closeButton = document.createElement("button");
 
   // TASK 6- Setup the structure of our elements
   /*
@@ -70,6 +70,12 @@ function makePanel(/* what data does the panel need? */) {
       <div></div>           // panelContent
     </div>
   */
+  panel.appendChild(panelBar);
+  panel.appendChild(panelContent);
+  panelBar.appendChild(panelTitle);
+  panelBar.appendChild(panelButtons);
+  panelButtons.appendChild(openButton);
+  panelButtons.appendChild(closeButton);
 
   // TASK 7- Add proper class names to our elements (See index.html for reference)
   // paying attention to the elements that need to start out hidden
@@ -83,7 +89,7 @@ function makePanel(/* what data does the panel need? */) {
   //  - the contents need to show (the 'toggle-on' class name controls this)
 
   // don't forget to return the panel!
-  return null;
+  return panel;
 }
 const testPanel = makePanel({ title: "foo", content: "bar" });
 accordion.append(testPanel);
