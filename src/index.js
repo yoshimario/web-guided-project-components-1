@@ -2,9 +2,7 @@
 //  that takes an { imgURL } and returns an img element.
 //  Then loop over these URLs making images as you go:
 const imageData = [
-  {
-    imageURL: "https://images.dog.ceo/breeds/mastiff-tibetan/n02108551_978.jpg",
-  },
+  { imageURL: "https://images.dog.ceo/breeds/mastiff-tibetan/n02108551_978.jpg"},
   { imageURL: "https://images.dog.ceo/breeds/mastiff-bull/n02108422_3398.jpg" },
   { imageURL: "https://images.dog.ceo/breeds/mastiff-bull/n02108422_2947.jpg" },
 ];
@@ -40,6 +38,7 @@ const { open, close } = constants;
 // console.log(linkData) // log the linkData
 // console.log(open) // log the open arrow
 // console.log(close) // log the close arrow
+
 
 // TASK 3- Comment out the div.panel from index.html and grab its parent element.
 //  We will generate the panel with code, and we'll need the parent
@@ -116,7 +115,7 @@ const panelElements = panelData.map(panelObj => {
 
 panelElements.forEach(panelElement => {
   accordion.appendChild(panelElement);
-}
+})
 
 // [STRETCH] Comment out the links inside the nav and
 // write a linkMaker that takes { href, className, text }
@@ -131,3 +130,17 @@ panelElements.forEach(panelElement => {
         <a href="#" class="nav-item">Contact</a>
 */
 
+function linkMaker({ href, className, text }) {
+  const link = document.createElement("a");
+  link.href = href;
+  link.className = className;
+  link.textContent = text;
+  // DON'T FORGET TO RETURN IT!!!!
+  return link;
+}
+
+const linkAnchor = document.querySelector("nav")
+linkData.forEach(linkObj => {
+  const linkElement = linkMaker(linkObj);
+  linkAnchor.appendChild(linkElement);
+});
