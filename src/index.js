@@ -106,12 +106,17 @@ function makePanel({ title, content }) {
   // don't forget to return the panel!
   return panel;
 }
-const testPanel = makePanel({ title: "foo", content: "bar" });
-accordion.append(testPanel);
 
 // TASK 10- Loop through the panelData we imported from the data folder
 //  creating panels for each content and title and append them to the DOM.
 //  We can do this with a single forEach, or with a map and a forEach.
+const panelElements = panelData.map((panelObj) => {
+  return makePanel(panelObj);
+});
+
+panelElements.forEach((panelElement) => {
+  accordion.appendChild(panelElement);
+});
 
 // [STRETCH] Comment out the links inside the nav and
 // write a linkMaker that takes { href, className, text }
